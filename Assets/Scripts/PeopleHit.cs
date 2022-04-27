@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TapticPlugin;
 public class PeopleHit : MonoBehaviour
 {
     //[SerializeField] Material firstMat;
@@ -33,6 +33,7 @@ public class PeopleHit : MonoBehaviour
     {
         if (other.gameObject.GetComponent<IDamageble>() != null)
         {
+            TapticManager.Impact(ImpactFeedback.Light);
             anim.SetBool("walk",true);
 
             other.gameObject.GetComponent<IDamageble>().hitPeople(gameObject);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TapticPlugin;
 public class PoliceStation : MonoBehaviour, IEmployeeDropping
 {
     [SerializeField] int jobId = 2;
@@ -70,6 +71,7 @@ public class PoliceStation : MonoBehaviour, IEmployeeDropping
     }
     public void employeeDrop()
     {
+        TapticManager.Impact(ImpactFeedback.Light);
         Globals.currentPoliceCount++;
         PlayerPrefs.SetInt("currentPoliceCount", Globals.currentPoliceCount);
         if (outline != null && employeCountText != null)

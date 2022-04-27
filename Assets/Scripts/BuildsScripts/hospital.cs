@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TapticPlugin;
 public class hospital : MonoBehaviour,IEmployeeDropping
 {
     [SerializeField] public int jobId = 1;
@@ -67,10 +68,13 @@ public class hospital : MonoBehaviour,IEmployeeDropping
     }
     public void employeeDrop()
     {
+        TapticManager.Impact(ImpactFeedback.Light);
+
         Globals.currentDoctorCount++;
         PlayerPrefs.SetInt("currentDoctorCount", Globals.currentDoctorCount);
         if (outline != null && employeCountText != null)
         {
+
             outline.fillAmount = (float)Globals.currentDoctorCount / (float)EmplCountforUpgrade[Globals.hospitalLevel];
 
             employeCountText.text = Globals.currentDoctorCount.ToString() + "/" + EmplCountforUpgrade[Globals.hospitalLevel].ToString();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TapticPlugin;
 public class Farmville : MonoBehaviour, IEmployeeDropping
 {
     [SerializeField] int jobId = 3;
@@ -71,6 +72,7 @@ public class Farmville : MonoBehaviour, IEmployeeDropping
     }
     public void employeeDrop()
     {
+        TapticManager.Impact(ImpactFeedback.Light);
         Globals.currentFarmerCount++;
         PlayerPrefs.SetInt("currentFarmerCount", Globals.currentFarmerCount);
         if (outline != null && employeCountText != null)

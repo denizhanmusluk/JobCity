@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TapticPlugin;
 public class University : MonoBehaviour, IEmployeeDropping
 {
     [SerializeField] int jobId = 4;
@@ -67,6 +68,7 @@ public class University : MonoBehaviour, IEmployeeDropping
     }
     public void employeeDrop()
     {
+        TapticManager.Impact(ImpactFeedback.Light);
         Globals.currentTeacherCount++;
         PlayerPrefs.SetInt("currentTeacherCount", Globals.currentTeacherCount);
         if (outline != null && employeCountText != null)

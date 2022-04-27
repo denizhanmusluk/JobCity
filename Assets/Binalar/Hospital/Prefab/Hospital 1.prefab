@@ -341,6 +341,7 @@ MonoBehaviour:
   - {fileID: 7053334329477242465}
   moneyCollecting: {fileID: 7327103864819963136}
   buildMesh: {fileID: 1378354827429341498}
+  firstSpawnTime: 0
 --- !u!1 &4664287378958024354
 GameObject:
   m_ObjectHideFlags: 0

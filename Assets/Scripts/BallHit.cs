@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TapticPlugin;
 public class BallHit : MonoBehaviour
 {
     //public AudioClip impact;
@@ -17,6 +17,7 @@ public class BallHit : MonoBehaviour
     {
         if (other.gameObject.GetComponent<IDamageble>() != null && other.gameObject.GetComponent<PlayerControl>() == null)
         {
+            TapticManager.Impact(ImpactFeedback.Heavy);
             Debug.Log("hit obs" + other.transform.name);
 
             GetComponent<Collider>().enabled = false;

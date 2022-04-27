@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TapticPlugin;
 
 public class ProfessionGate : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ProfessionGate : MonoBehaviour
     {
         if (other.gameObject.GetComponent<IDamageble>() != null && other.tag != "Player")
         {
+            TapticManager.Impact(ImpactFeedback.Medium);
             other.transform.GetChild(1).transform.GetComponent<SkinnedMeshRenderer>().sharedMesh = employeeSkinPrefab[0].sharedMesh;
             other.transform.GetChild(1).transform.GetComponent<SkinnedMeshRenderer>().material = jobMaterial;
             other.GetComponent<Employee>().jobId = jobId;

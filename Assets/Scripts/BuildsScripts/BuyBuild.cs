@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using TapticPlugin;
 public class BuyBuild : MonoBehaviour
 {
     [SerializeField] int cost;
@@ -18,6 +18,7 @@ public class BuyBuild : MonoBehaviour
     [SerializeField] string buyName;
     public bool isbuy = true;
     [SerializeField] string currentCostBuild;
+    float counterTime = 0;
 
     void Start()
     {
@@ -89,8 +90,12 @@ public class BuyBuild : MonoBehaviour
             StartCoroutine(buildScaling());
             GetComponent<Collider>().enabled = false;
         }
-
-
+        counterTime += Time.deltaTime;
+        if (counterTime > 0.15f)
+        {
+            counterTime = 0f;
+            TapticManager.Impact(ImpactFeedback.Light); 
+        }
 
         yield return null;
         isbuy = true;

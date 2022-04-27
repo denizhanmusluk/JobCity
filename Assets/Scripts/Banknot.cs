@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TapticPlugin;
 
 public class Banknot : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class Banknot : MonoBehaviour
             transform.localScale = Vector3.Lerp(transform.localScale, target.transform.localScale, motionSpeed * 0.1f * Time.deltaTime);
             yield return null;
         }
+        TapticManager.Impact(ImpactFeedback.Light);
         GameObject money = gameObject;
         money.transform.parent = null;
         Destroy(money);
