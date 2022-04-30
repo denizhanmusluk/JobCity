@@ -103,9 +103,7 @@ public class NPC : MonoBehaviour, ITroubleFix
             currentSelection = States.stopMove;
             GetComponent<CapsuleCollider>().radius *= 2;
 
-        }
-
-        if (Vector3.Distance(transform.position, destination.position) < 1)
+        }else if (Vector3.Distance(transform.position, destination.position) < 1)
         {
             anim.SetBool("walk", false);
             destination.transform.parent.GetComponent<Build>().customerList.Remove(this.gameObject);
